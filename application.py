@@ -37,7 +37,7 @@ def csvPreProcessing(input_file, output_file):
 			for i, old_row in enumerate(revised):
 				if (i % 1000 == 0):
 					print(i)
-				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
+				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance_sc','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
 				if old_row['description'] == 'hit_into_play' or old_row['description'] == 'hit_into_play_no_out': # store the hit data
 					new_row = {}
 					for attribute, data in old_row.items():
