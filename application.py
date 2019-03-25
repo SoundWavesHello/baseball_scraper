@@ -4,20 +4,22 @@ import pandas as pd
 import csv
 
 # file names
-all_data_file_name = 'total_week1.csv'
-processed_data_file_name = 'data_week1.csv'
+all_data_file_name = 'raw_data_2018.csv'
+processed_data_file_name = 'processed_data_2018.csv'
 
 # print a nice greeting.
 def getInfo(input_file):
     print("In GET INFO")
 
-    data = statcast(start_dt='2018-03-29', end_dt='2018-04-8')
+    data = statcast(start_dt='2018-03-28', end_dt='2018-10-1')
     # print(data.head(data.size))
     data.to_csv(input_file)
 
 
 
 def csvPreProcessing(input_file, output_file):
+
+	print("IN PRE-PROCESSING")
 
 	header_dict = {'description': 1,'hit_location': 1,'on_3b': 1,'on_2b': 1,'on_1b': 1,'outs_when_up': 1,'hc_x': 1,'hc_y': 1,'hit_distance': 1,'launch_speed': 1,'launch_angle': 1,'fielder_3': 1,'fielder_4': 1,'fielder_5': 1,'fielder_6': 1,'fielder_7': 1,'fielder_8': 1,'fielder_9': 1,'if_fielding_alignment': 1,'of_fielding_alignment': 1,'bat_score': 1,'post_bat_score': 1,'game_date': 1, 'home_team':1, 'batter':1, 'estimated_ba_using_speedangle':1, 'inning_topbot':1, 'total_bases':1}
 	with open(input_file) as file_r:
@@ -33,6 +35,8 @@ def csvPreProcessing(input_file, output_file):
 			revised.reverse()
 
 			for i, old_row in enumerate(revised):
+				if (i % 1000 == 0):
+					print(i)
 				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
 				if old_row['description'] == 'hit_into_play' or old_row['description'] == 'hit_into_play_no_out': # store the hit data
 					new_row = {}
@@ -151,7 +155,7 @@ def csvPreProcessing(input_file, output_file):
 # game_date
 
 
-getInfo(all_data_file_name)
+# getInfo(all_data_file_name)
 csvPreProcessing(all_data_file_name, processed_data_file_name)
 
 # EB looks for an 'application' callable by default.
