@@ -14,8 +14,8 @@ def neural_net(features, labels, mode):
 
 	print("Starting NN")
 
-	dense_layer_1 = tf.layers.dense(inputs=features, units=20, activation=sigmoid)
-	dense_layer_2 = tf.layers.dense(inputs=dense_layer_1, units=20, activation=sigmoid)
+	dense_layer_1 = tf.layers.dense(inputs=features, units=20, activation=tf.nn.relu)
+	dense_layer_2 = tf.layers.dense(inputs=dense_layer_1, units=20, activation=tf.nn.relu)
 	logits = tf.layers.dense(inputs=dense_layer_2, units=17)
 
 
@@ -61,9 +61,8 @@ def neural_net(features, labels, mode):
 def train(train_data, train_labels, classifier, iterations=50):
 	
 	# log information
-	tensors_to_log = {"probabilities":"softmax_tensor"}
-	logging_hook = tf.train.LoggingTensorHook(
-		tensors=tensors_to_log, every_n_iter=iterations)
+	# tensors_to_log = {"probabilities":"softmax_tensor"}
+	# logging_hook = tf.train.LoggingTensorHook(tensors=tensors_to_log, every_n_iter=iterations)
 
 	# train our model
 	train_input_fn = tf.estimator.inputs.numpy_input_fn(
@@ -74,8 +73,7 @@ def train(train_data, train_labels, classifier, iterations=50):
 		shuffle=True)
 	classifier.train(
 		input_fn=train_input_fn,
-		steps=STEPS,
-		hooks=[logging_hook])
+		steps=STEPS)
 
 	return classifier
 
@@ -93,21 +91,37 @@ def test(eval_data, eval_labels, classifier):
 def main(input_file):
 	inputs = []
 
+	print("begin")
+
 	with open(input_file) as file_r:
 		reader = csv.DictReader(file_r)
+		missing = 0
 		for row in reader:
 			# sets the on_base variables to binary
 			on_1 = 0 if row['on_1b'] == "" else 1
 			on_2 = 0 if row['on_2b'] == "" else 1
 			on_3 = 0 if row['on_3b'] == "" else 1
 
-			new_input = [double(row['hc_x']), double(row['hc_y']), int(row['launch_angle']), double(row['launch_speed']), double(row['estimated_ba_using_speedangle']), int(row['outs_when_up']), row['home_team'], on_1, on_2, on_3, int(row['total_bases'])]
-			inputs.append(new_input)
+			if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['home_team'] == "" or row['total_bases'] == "":
+				missing += 1
+			else:
+				new_input = [float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), row['home_team'], on_1, on_2, on_3, int(float(row['total_bases']))]
+				inputs.append(new_input)
+				if int(float(row['total_bases'])) > 6:
+					print("Above 6", int(float(row['total_bases'])))
 	file_r.close()
 
+	print("missing data:", missing)
+
+	print("closed file")
+
 	numpy.random.shuffle(inputs)
+
+	print("completed shuffle")
 	split = round(PERCENT_TRAINING * len(inputs))
 	training, testing = inputs[:split], inputs[split:]
+
+	print("completed split")
 
 	train_x = []
 	train_y = []
@@ -115,16 +129,18 @@ def main(input_file):
 	test_y = []
 
 	for row in training:
-		train_x.append(training[:-1])
-		train_y.append(training[-1])
+		train_x.append(row[:-1])
+		train_y.append(row[-1])
 	for row in testing:
-		test_x.append(testing[:-1])
-		test_y.append(testing[-1])
+		test_x.append(row[:-1])
+		test_y.append(row[-1])
 
-	train_data = np.asarray(train_x)
-	train_labels = np.asarray(train_y)
-	eval_data = np.asarray(test_x)
-	eval_labels = np.asarray(test_y)
+	print("completed x/y var separation")
+
+	train_data = numpy.asarray(train_x)
+	train_labels = numpy.asarray(train_y)
+	eval_data = numpy.asarray(test_x)
+	eval_labels = numpy.asarray(test_y)
 
 	print("---------------CREATING CLASSIFIER----------------")
 	# create estimator
