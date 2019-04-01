@@ -4,9 +4,10 @@ import csv
 
 input_file = 'processed_data_2018.csv'
 PERCENT_TRAINING = 0.8
-BATCH_SIZE = 14
-STEPS = 4000
+BATCH_SIZE = 200
+STEPS = 10000
 LEARNING_RATE = 0.001
+NUM_EPOCHS = 100
 
 
 
@@ -61,25 +62,27 @@ def neural_net(features, labels, mode):
 def train(train_data, train_labels, classifier, iterations=50):
 	
 	# log information
-	# tensors_to_log = {"probabilities":"softmax_tensor"}
-	# logging_hook = tf.train.LoggingTensorHook(tensors=tensors_to_log, every_n_iter=iterations)
+	tensors_to_log = {"probabilities":"softmax_tensor"}
+	logging_hook = tf.train.LoggingTensorHook(
+		tensors=tensors_to_log, every_n_iter=iterations)
 
 	# train our model
 	train_input_fn = tf.estimator.inputs.numpy_input_fn(
-		x={"x": train_data},
+		x=train_data,
 		y=train_labels,
 		batch_size=BATCH_SIZE,
-		num_epochs=None,
+		num_epochs=NUM_EPOCHS,
 		shuffle=True)
 	classifier.train(
 		input_fn=train_input_fn,
-		steps=STEPS)
+		steps=STEPS,
+		hooks=[logging_hook])
 
 	return classifier
 
 def test(eval_data, eval_labels, classifier):
 	eval_input_fn = tf.estimator.inputs.numpy_input_fn(
-    	x={"x": eval_data},
+    	x=eval_data,
     	y=eval_labels,
     	num_epochs=1,
     	shuffle=False)
@@ -102,10 +105,10 @@ def main(input_file):
 			on_2 = 0 if row['on_2b'] == "" else 1
 			on_3 = 0 if row['on_3b'] == "" else 1
 
-			if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['home_team'] == "" or row['total_bases'] == "":
+			if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "": # add or row['home_team'] == ""
 				missing += 1
 			else:
-				new_input = [float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), row['home_team'], on_1, on_2, on_3, int(float(row['total_bases']))]
+				new_input = [float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3, int(float(row['total_bases']))] # row['home_team'],   
 				inputs.append(new_input)
 				if int(float(row['total_bases'])) > 6:
 					print("Above 6", int(float(row['total_bases'])))
@@ -130,10 +133,10 @@ def main(input_file):
 
 	for row in training:
 		train_x.append(row[:-1])
-		train_y.append(row[-1])
+		train_y.append(row[-1] + 6)	# shifted by 6 bases, CHANGE THIS!!!
 	for row in testing:
 		test_x.append(row[:-1])
-		test_y.append(row[-1])
+		test_y.append(row[-1] + 6) # shifted by 6 bases, CHANGE THIS!!!
 
 	print("completed x/y var separation")
 
