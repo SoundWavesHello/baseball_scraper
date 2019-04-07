@@ -94,6 +94,8 @@ def test(eval_data, eval_labels, classifier):
 def main(input_file):
 	inputs = []
 
+	team_dict = {"ARI": 0, "ATL": 1, "BAL": 2, "BOS": 3, "CHC": 4, "CWS": 5, "CIN": 6, "CLE": 7, "COL": 8, "DET": 9, "MIA": 10, "HOU": 11, "KC": 12, "LAA": 13, "LAD":14, "MIL":15, "MIN":16, "NYM": 17, "NYY":18, "OAK":19, "PHI":20, "PIT": 21, "SD": 22, "SF": 23, "SEA": 24, "STL": 25, "TB": 26, "TEX": 27, "TOR": 28, "WSH": 29 }
+
 	print("begin")
 
 	with open(input_file) as file_r:
@@ -108,7 +110,7 @@ def main(input_file):
 			if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "": # add or row['home_team'] == ""
 				missing += 1
 			else:
-				new_input = [float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3, int(float(row['total_bases']))] # row['home_team'],   
+				new_input = [team_dict[row['home_team']], float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3,  int(float(row['total_bases']))] # row['home_team'],   
 				inputs.append(new_input)
 				if int(float(row['total_bases'])) > 6:
 					print("Above 6", int(float(row['total_bases'])))
