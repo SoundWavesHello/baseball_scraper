@@ -87,8 +87,9 @@ def test(eval_data, eval_labels, classifier):
     	num_epochs=1,
     	shuffle=False)
 	eval_results = classifier.evaluate(input_fn=eval_input_fn)
+	eval_predictions = classifier.predict(input_fn=eval_input_fn)
 	
-	return eval_results
+	return eval_results, eval_predictions
 
 
 def main(input_files):
@@ -158,7 +159,24 @@ def main(input_files):
 
 	print("---------------EVALUATING CLASSIFIER----------------")
 	# evaluate effectiveness
-	results = test(eval_data, eval_labels, model)
+	results, pred_gen = test(eval_data, eval_labels, model)
 	print(results)
+	#print(test_y)
+	# print(pred)
+	pred_gen = list(pred_gen)
+	predict = []
+
+	for row in pred_gen:
+		predict.append(row["classes"])
+
+	#print(pred)
+
+	# matrix = tf.math.confusion_matrix(test_y, predict)
+	# print(matrix)
+	with tf.Session() as sess:
+		confusion_matrix = tf.confusion_matrix(labels=test_y, predictions=predict)
+		confusion_matrix_to_Print = sess.run(confusion_matrix)
+		print(confusion_matrix_to_Print)
+
 
 main(input_files)
