@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy
 import csv
 
-input_file = 'processed_data_2018.csv'
+input_files = ['processed_data_2015.csv', 'processed_data_2016.csv', 'processed_data_2017.csv', 'processed_data_2018.csv']
 PERCENT_TRAINING = 0.8
 BATCH_SIZE = 200
 STEPS = 10000
@@ -91,34 +91,35 @@ def test(eval_data, eval_labels, classifier):
 	return eval_results
 
 
-def main(input_file):
+def main(input_files):
 	inputs = []
 
 	team_dict = {"ARI": 0, "ATL": 1, "BAL": 2, "BOS": 3, "CHC": 4, "CWS": 5, "CIN": 6, "CLE": 7, "COL": 8, "DET": 9, "MIA": 10, "HOU": 11, "KC": 12, "LAA": 13, "LAD":14, "MIL":15, "MIN":16, "NYM": 17, "NYY":18, "OAK":19, "PHI":20, "PIT": 21, "SD": 22, "SF": 23, "SEA": 24, "STL": 25, "TB": 26, "TEX": 27, "TOR": 28, "WSH": 29 }
 
 	print("begin")
 
-	with open(input_file) as file_r:
-		reader = csv.DictReader(file_r)
-		missing = 0
-		for row in reader:
-			# sets the on_base variables to binary
-			on_1 = 0 if row['on_1b'] == "" else 1
-			on_2 = 0 if row['on_2b'] == "" else 1
-			on_3 = 0 if row['on_3b'] == "" else 1
+	for input_file in input_files:
+		with open(input_file) as file_r:
+			reader = csv.DictReader(file_r)
+			missing = 0
+			for row in reader:
+				# sets the on_base variables to binary
+				on_1 = 0 if row['on_1b'] == "" else 1
+				on_2 = 0 if row['on_2b'] == "" else 1
+				on_3 = 0 if row['on_3b'] == "" else 1
 
-			if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "": # add or row['home_team'] == ""
-				missing += 1
-			else:
-				new_input = [team_dict[row['home_team']], float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3,  int(float(row['total_bases']))] # row['home_team'],   
-				inputs.append(new_input)
-				if int(float(row['total_bases'])) > 6:
-					print("Above 6", int(float(row['total_bases'])))
-	file_r.close()
+				if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "": # add or row['home_team'] == ""
+					missing += 1
+				else:
+					new_input = [team_dict[row['home_team']], float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3,  int(float(row['total_bases']))] # row['home_team'],   
+					inputs.append(new_input)
+					if int(float(row['total_bases'])) > 6:
+						print("Above 6", int(float(row['total_bases'])))
+		file_r.close()
 
-	print("missing data:", missing)
+		print(input_file, "missing data:", missing)
 
-	print("closed file")
+		print("closed file")
 
 	numpy.random.shuffle(inputs)
 
@@ -160,4 +161,4 @@ def main(input_file):
 	results = test(eval_data, eval_labels, model)
 	print(results)
 
-main(input_file)
+main(input_files)
