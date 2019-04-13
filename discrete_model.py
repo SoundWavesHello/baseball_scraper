@@ -91,6 +91,14 @@ def test(eval_data, eval_labels, classifier):
 	
 	return eval_results, eval_predictions
 
+def predict(data, labels, classifier):
+	eval_input_fn = tf.estimator.inputs.numpy_input_fn(
+    	x=data,
+    	y=labels,
+    	num_epochs=1,
+    	shuffle=False)
+	prediction = classifier.predict(input_fn=eval_input_fn)
+	return list(prediction)['classes']
 
 def main(input_files):
 	inputs = []
@@ -178,5 +186,6 @@ def main(input_files):
 		confusion_matrix_to_Print = sess.run(confusion_matrix)
 		print(confusion_matrix_to_Print)
 
-
-main(input_files)
+	single_prediction = predict(eval_data[0], eval_labels[0], model)
+	print(single_prediction)
+# main(input_files)
