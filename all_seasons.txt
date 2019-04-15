@@ -1,0 +1,1751 @@
+begin
+processed_data_2015.csv missing data: 5355
+closed file
+processed_data_2016.csv missing data: 6073
+closed file
+processed_data_2017.csv missing data: 6833
+closed file
+processed_data_2018.csv missing data: 6115
+closed file
+completed shuffle
+completed split
+completed x/y var separation
+---------------CREATING CLASSIFIER----------------
+---------------TRAINING CLASSIFIER----------------
+Starting NN
+---------------EVALUATING CLASSIFIER----------------
+Starting NN
+{'accuracy': 0.7364092, 'loss': 0.81399804, 'global_step': 80000}
+Starting NN
+-756
+Starting NN
+-184
+Starting NN
+-153
+Starting NN
+-264
+Starting NN
+-417
+Starting NN
+-226
+Starting NN
+-146
+Starting NN
+-484
+Starting NN
+-35
+Starting NN
+-20
+Starting NN
+-78
+Starting NN
+-118
+Starting NN
+-530
+Starting NN
+-137
+Starting NN
+-16
+Starting NN
+-189
+Starting NN
+-510
+Starting NN
+-66
+Starting NN
+-358
+Starting NN
+-241
+Starting NN
+-809
+Starting NN
+-11
+Starting NN
+-137
+Starting NN
+-79
+Starting NN
+-395
+Starting NN
+-157
+Starting NN
+-173
+Starting NN
+-588
+Starting NN
+-17
+Starting NN
+-125
+Starting NN
+-92
+Starting NN
+-145
+Starting NN
+-132
+Starting NN
+-31
+Starting NN
+-66
+Starting NN
+-203
+Starting NN
+-711
+Starting NN
+-638
+Starting NN
+-861
+Starting NN
+-112
+Starting NN
+-342
+Starting NN
+-99
+Starting NN
+-102
+Starting NN
+-60
+Starting NN
+-544
+Starting NN
+-133
+Starting NN
+-202
+Starting NN
+-172
+Starting NN
+-194
+Starting NN
+-243
+Starting NN
+-351
+Starting NN
+-63
+Starting NN
+-89
+Starting NN
+-43
+Starting NN
+-186
+Starting NN
+-183
+Starting NN
+-66
+Starting NN
+-571
+Starting NN
+-214
+Starting NN
+-54
+Starting NN
+-584
+Starting NN
+-4
+Starting NN
+-321
+Starting NN
+-104
+Starting NN
+-125
+Starting NN
+-153
+Starting NN
+-137
+Starting NN
+-230
+Starting NN
+-73
+Starting NN
+-213
+Starting NN
+-287
+Starting NN
+-102
+Starting NN
+-386
+Starting NN
+-112
+Starting NN
+-81
+Starting NN
+-146
+Starting NN
+-197
+Starting NN
+-122
+Starting NN
+-279
+Starting NN
+-346
+Starting NN
+-149
+Starting NN
+-510
+Starting NN
+-55
+Starting NN
+-188
+Starting NN
+-82
+Starting NN
+-538
+Starting NN
+-780
+Starting NN
+-12
+Starting NN
+-341
+Starting NN
+-66
+Starting NN
+-49
+Starting NN
+-846
+Starting NN
+-21
+Starting NN
+-110
+Starting NN
+-437
+Starting NN
+-101
+Starting NN
+-59
+Starting NN
+-197
+Starting NN
+-107
+Starting NN
+-139
+Starting NN
+-157
+Starting NN
+-438
+Starting NN
+-42
+Starting NN
+-368
+Starting NN
+-579
+Starting NN
+-144
+Starting NN
+-153
+Starting NN
+-128
+Starting NN
+-126
+Starting NN
+-155
+Starting NN
+-198
+Starting NN
+-131
+Starting NN
+-471
+Starting NN
+-54
+Starting NN
+-181
+Starting NN
+2
+Starting NN
+-622
+Starting NN
+-408
+Starting NN
+-683
+Starting NN
+-84
+Starting NN
+-31
+Starting NN
+-481
+Starting NN
+-264
+Starting NN
+-97
+Starting NN
+-112
+Starting NN
+-126
+Starting NN
+-499
+Starting NN
+-198
+Starting NN
+-200
+Starting NN
+-782
+Starting NN
+-151
+Starting NN
+-706
+Starting NN
+-58
+Starting NN
+-492
+Starting NN
+-68
+Starting NN
+-153
+Starting NN
+-30
+Starting NN
+-454
+Starting NN
+-30
+Starting NN
+-80
+Starting NN
+-673
+Starting NN
+-104
+Starting NN
+-49
+Starting NN
+-128
+Starting NN
+-209
+Starting NN
+-634
+Starting NN
+-374
+Starting NN
+-370
+Starting NN
+-216
+Starting NN
+-139
+Starting NN
+-38
+Starting NN
+-348
+Starting NN
+-30
+Starting NN
+-311
+Starting NN
+-106
+Starting NN
+-163
+Starting NN
+-320
+Starting NN
+-71
+Starting NN
+-32
+Starting NN
+-197
+Starting NN
+-67
+Starting NN
+-78
+Starting NN
+-120
+Starting NN
+-436
+Starting NN
+-164
+Starting NN
+-98
+Starting NN
+-314
+Starting NN
+-21
+Starting NN
+-233
+Starting NN
+-142
+Starting NN
+-17
+Starting NN
+-168
+Starting NN
+-258
+Starting NN
+-143
+Starting NN
+-231
+Starting NN
+-582
+Starting NN
+-251
+Starting NN
+-710
+Starting NN
+-209
+Starting NN
+-235
+Starting NN
+-37
+Starting NN
+-114
+Starting NN
+-556
+Starting NN
+-21
+Starting NN
+-308
+Starting NN
+-90
+Starting NN
+-157
+Starting NN
+-13
+Starting NN
+-86
+Starting NN
+-68
+Starting NN
+-106
+Starting NN
+-29
+Starting NN
+-512
+Starting NN
+-6
+Starting NN
+-141
+Starting NN
+-653
+Starting NN
+-496
+Starting NN
+-291
+Starting NN
+-87
+Starting NN
+-520
+Starting NN
+-164
+Starting NN
+-201
+Starting NN
+-494
+Starting NN
+-28
+Starting NN
+-236
+Starting NN
+-155
+Starting NN
+-14
+Starting NN
+-215
+Starting NN
+-287
+Starting NN
+-47
+Starting NN
+-159
+Starting NN
+-177
+Starting NN
+-67
+Starting NN
+-135
+Starting NN
+-224
+Starting NN
+-106
+Starting NN
+-463
+Starting NN
+-97
+Starting NN
+-585
+Starting NN
+-33
+Starting NN
+-100
+Starting NN
+-208
+Starting NN
+-519
+Starting NN
+-49
+Starting NN
+-587
+Starting NN
+-477
+Starting NN
+-316
+Starting NN
+-561
+Starting NN
+-110
+Starting NN
+-151
+Starting NN
+-118
+Starting NN
+-169
+Starting NN
+-88
+Starting NN
+-203
+Starting NN
+-660
+Starting NN
+-153
+Starting NN
+-76
+Starting NN
+-158
+Starting NN
+-250
+Starting NN
+-41
+Starting NN
+-2
+Starting NN
+-10
+Starting NN
+-469
+Starting NN
+-55
+Starting NN
+-38
+Starting NN
+-125
+Starting NN
+-19
+Starting NN
+-77
+Starting NN
+-272
+Starting NN
+-283
+Starting NN
+-184
+Starting NN
+-221
+Starting NN
+-72
+Starting NN
+-5
+Starting NN
+-101
+Starting NN
+-128
+Starting NN
+-242
+Starting NN
+-227
+Starting NN
+-59
+Starting NN
+-166
+Starting NN
+-18
+Starting NN
+-74
+Starting NN
+-73
+Starting NN
+-111
+Starting NN
+-26
+Starting NN
+-76
+Starting NN
+-36
+Starting NN
+-118
+Starting NN
+-16
+Starting NN
+-74
+Starting NN
+-158
+Starting NN
+-236
+Starting NN
+-477
+Starting NN
+-138
+Starting NN
+-8
+Starting NN
+-158
+Starting NN
+-2
+Starting NN
+-167
+Starting NN
+-24
+Starting NN
+-19
+Starting NN
+-37
+Starting NN
+-232
+Starting NN
+-22
+Starting NN
+-73
+Starting NN
+-19
+Starting NN
+-14
+Starting NN
+-6
+Starting NN
+-105
+Starting NN
+-2
+Starting NN
+-77
+Starting NN
+-84
+Starting NN
+-14
+Starting NN
+-29
+Starting NN
+-47
+Starting NN
+-78
+Starting NN
+-194
+Starting NN
+-77
+Starting NN
+-16
+Starting NN
+-535
+Starting NN
+-12
+Starting NN
+-202
+Starting NN
+-4
+Starting NN
+-47
+Starting NN
+-20
+Starting NN
+-302
+Starting NN
+-81
+Starting NN
+-293
+Starting NN
+-263
+Starting NN
+-38
+Starting NN
+-72
+Starting NN
+-48
+Starting NN
+-160
+Starting NN
+-3
+Starting NN
+-155
+Starting NN
+-7
+Starting NN
+-50
+Starting NN
+-52
+Starting NN
+-294
+Starting NN
+-18
+Starting NN
+-23
+Starting NN
+-253
+Starting NN
+-80
+Starting NN
+-22
+Starting NN
+-307
+Starting NN
+-255
+Starting NN
+-24
+Starting NN
+-51
+Starting NN
+-4
+Starting NN
+-4
+Starting NN
+0
+Starting NN
+-19
+Starting NN
+-618
+Starting NN
+-61
+Starting NN
+-175
+Starting NN
+-9
+Starting NN
+-45
+Starting NN
+-1
+Starting NN
+-364
+Starting NN
+-33
+Starting NN
+-55
+Starting NN
+-56
+Starting NN
+-7
+Starting NN
+-86
+Starting NN
+-12
+Starting NN
+-237
+Starting NN
+-109
+Starting NN
+-108
+Starting NN
+-35
+Starting NN
+-220
+Starting NN
+-41
+Starting NN
+-1
+Starting NN
+-5
+Starting NN
+-95
+Starting NN
+-11
+Starting NN
+-243
+Starting NN
+-7
+Starting NN
+-281
+Starting NN
+-7
+Starting NN
+-225
+Starting NN
+-69
+Starting NN
+-2
+Starting NN
+-1
+Starting NN
+-141
+Starting NN
+-168
+Starting NN
+-548
+Starting NN
+-3
+Starting NN
+-11
+Starting NN
+-54
+Starting NN
+-112
+Starting NN
+-214
+Starting NN
+-8
+Starting NN
+-605
+Starting NN
+-199
+Starting NN
+3
+Starting NN
+-435
+Starting NN
+-226
+Starting NN
+-36
+Starting NN
+-91
+Starting NN
+-50
+Starting NN
+-488
+Starting NN
+-1
+Starting NN
+-20
+Starting NN
+-72
+Starting NN
+-27
+Starting NN
+-40
+Starting NN
+-161
+Starting NN
+-82
+Starting NN
+0
+Starting NN
+-4
+Starting NN
+-3
+Starting NN
+0
+Starting NN
+-9
+Starting NN
+-174
+Starting NN
+-63
+Starting NN
+-7
+Starting NN
+-33
+Starting NN
+-27
+Starting NN
+2
+Starting NN
+-11
+Starting NN
+-102
+Starting NN
+-14
+Starting NN
+-10
+Starting NN
+-64
+Starting NN
+-306
+Starting NN
+-162
+Starting NN
+0
+Starting NN
+-4
+Starting NN
+-422
+Starting NN
+-147
+Starting NN
+-59
+Starting NN
+0
+Starting NN
+-129
+Starting NN
+-52
+Starting NN
+-15
+Starting NN
+-128
+Starting NN
+-226
+Starting NN
+-17
+Starting NN
+-2
+Starting NN
+-254
+Starting NN
+-98
+Starting NN
+-80
+Starting NN
+-371
+Starting NN
+-75
+Starting NN
+-32
+Starting NN
+-247
+Starting NN
+-160
+Starting NN
+-444
+Starting NN
+-7
+Starting NN
+-18
+Starting NN
+-17
+Starting NN
+-40
+Starting NN
+-33
+Starting NN
+-4
+Starting NN
+-8
+Starting NN
+-70
+Starting NN
+-6
+Starting NN
+-7
+Starting NN
+-147
+Starting NN
+-1
+Starting NN
+-93
+Starting NN
+-16
+Starting NN
+-242
+Starting NN
+-35
+Starting NN
+-34
+Starting NN
+-75
+Starting NN
+-108
+Starting NN
+-353
+Starting NN
+-8
+Starting NN
+-7
+Starting NN
+-8
+Starting NN
+-4
+Starting NN
+-67
+Starting NN
+-95
+Starting NN
+-158
+Starting NN
+-95
+Starting NN
+-1
+Starting NN
+-2
+Starting NN
+-139
+Starting NN
+-8
+Starting NN
+-98
+Starting NN
+0
+Starting NN
+-7
+Starting NN
+-63
+Starting NN
+2
+Starting NN
+-4
+Starting NN
+-4
+Starting NN
+-5
+Starting NN
+-3
+Starting NN
+-52
+Starting NN
+1
+Starting NN
+-26
+Starting NN
+-554
+Starting NN
+-29
+Starting NN
+-219
+Starting NN
+-58
+Starting NN
+-390
+Starting NN
+-114
+Starting NN
+-265
+Starting NN
+-4
+Starting NN
+-35
+Starting NN
+-22
+Starting NN
+0
+Starting NN
+-88
+Starting NN
+0
+Starting NN
+-37
+Starting NN
+-8
+Starting NN
+-194
+Starting NN
+-27
+Starting NN
+-75
+Starting NN
+-150
+Starting NN
+-4
+Starting NN
+-2
+Starting NN
+-31
+Starting NN
+-11
+Starting NN
+-6
+Starting NN
+-7
+Starting NN
+0
+Starting NN
+-4
+Starting NN
+-47
+Starting NN
+-283
+Starting NN
+-4
+Starting NN
+-229
+Starting NN
+-65
+Starting NN
+0
+Starting NN
+-32
+Starting NN
+-6
+Starting NN
+-159
+Starting NN
+-2
+Starting NN
+3
+Starting NN
+-21
+Starting NN
+-160
+Starting NN
+-3
+Starting NN
+-21
+Starting NN
+-196
+Starting NN
+-8
+Starting NN
+-11
+Starting NN
+-3
+Starting NN
+-1
+Starting NN
+-12
+Starting NN
+-71
+Starting NN
+-130
+Starting NN
+-4
+Starting NN
+-1
+Starting NN
+-411
+Starting NN
+-28
+Starting NN
+-14
+Starting NN
+-45
+Starting NN
+-40
+Starting NN
+0
+Starting NN
+-35
+Starting NN
+-56
+Starting NN
+0
+Starting NN
+0
+Starting NN
+0
+Starting NN
+-41
+Starting NN
+-68
+Starting NN
+-41
+Starting NN
+-250
+Starting NN
+0
+Starting NN
+-81
+Starting NN
+-485
+Starting NN
+0
+Starting NN
+-9
+Starting NN
+-1
+Starting NN
+-61
+Starting NN
+-125
+Starting NN
+-238
+Starting NN
+-17
+Starting NN
+-5
+Starting NN
+-209
+Starting NN
+-16
+Starting NN
+-87
+Starting NN
+-21
+Starting NN
+-116
+Starting NN
+-71
+Starting NN
+-82
+Starting NN
+-2
+Starting NN
+-17
+Starting NN
+-58
+Starting NN
+-10
+Starting NN
+-154
+Starting NN
+-516
+Starting NN
+-251
+Starting NN
+-120
+Starting NN
+-6
+Starting NN
+-6
+Starting NN
+-3
+Starting NN
+-2
+Starting NN
+-1
+Starting NN
+0
+Starting NN
+-1
+Starting NN
+-280
+Starting NN
+-2
+Starting NN
+-1
+Starting NN
+0
+Starting NN
+-36
+Starting NN
+-65
+Starting NN
+-27
+Starting NN
+-110
+Starting NN
+-99
+Starting NN
+-84
+Starting NN
+-19
+Starting NN
+-45
+Starting NN
+-12
+Starting NN
+-103
+Starting NN
+-73
+Starting NN
+0
+Starting NN
+-7
+Starting NN
+-7
+Starting NN
+-6
+Starting NN
+-4
+Starting NN
+-192
+Starting NN
+-160
+Starting NN
+-11
+Starting NN
+0
+Starting NN
+-44
+Starting NN
+-1
+Starting NN
+-14
+Starting NN
+0
+Starting NN
+-29
+Starting NN
+-32
+Starting NN
+-5
+Starting NN
+-193
+Starting NN
+-232
+Starting NN
+-95
+Starting NN
+-69
+Starting NN
+-5
+Starting NN
+-108
+Starting NN
+-7
+Starting NN
+-19
+Starting NN
+-10
+Starting NN
+-138
+Starting NN
+-184
+Starting NN
+-62
+Starting NN
+-3
+Starting NN
+-227
+Starting NN
+-69
+Starting NN
+-15
+Starting NN
+-1
+Starting NN
+-61
+Starting NN
+-96
+Starting NN
+-368
+Starting NN
+-3
+Starting NN
+-145
+Starting NN
+-17
+Starting NN
+-32
+Starting NN
+-13
+Starting NN
+-268
+Starting NN
+-31
+Starting NN
+-316
+Starting NN
+-25
+Starting NN
+0
+Starting NN
+-386
+Starting NN
+0
+Starting NN
+-118
+Starting NN
+-68
+Starting NN
+-153
+Starting NN
+-142
+Starting NN
+-6
+Starting NN
+-3
+Starting NN
+-194
+Starting NN
+-73
+Starting NN
+-39
+Starting NN
+-80
+Starting NN
+2
+Starting NN
+-61
+Starting NN
+-3
+Starting NN
+-118
+Starting NN
+-26
+Starting NN
+-179
+Starting NN
+-9
+Starting NN
+1
+Starting NN
+-44
+Starting NN
+-1
+Starting NN
+-9
+Starting NN
+-57
+Starting NN
+-60
+Starting NN
+-338
+Starting NN
+-277
+Starting NN
+0
+Starting NN
+-44
+Starting NN
+-3
+Starting NN
+0
+Starting NN
+-40
+Starting NN
+0
+Starting NN
+-17
+Starting NN
+-153
+Starting NN
+-19
+Starting NN
+-33
+Starting NN
+-1
+Starting NN
+-262
+Starting NN
+-5
+Starting NN
+-61
+Starting NN
+-42
+Starting NN
+-36
+Starting NN
+-35
+Starting NN
+-258
+Starting NN
+-110
+Starting NN
+-55
+Starting NN
+-13
+Starting NN
+-107
+Starting NN
+-151
+Starting NN
+-9
+Starting NN
+2
+Starting NN
+0
+Starting NN
+-49
+Starting NN
+-28
+Starting NN
+-5
+Starting NN
+-64
+Starting NN
+-13
+Starting NN
+-7
+Starting NN
+0
+Starting NN
+-184
+Starting NN
+-137
+Starting NN
+-89
+Starting NN
+-12
+Starting NN
+-4
+Starting NN
+-13
+Starting NN
+-323
+Starting NN
+-91
+Starting NN
+-86
+Starting NN
+-63
+Starting NN
+4
+Starting NN
+-62
+Starting NN
+2
+Starting NN
+-7
+Starting NN
+-78
+Starting NN
+0
+Starting NN
+-127
+Starting NN
+-103
+Starting NN
+-91
+Starting NN
+-44
+Starting NN
+-1
+Starting NN
+-29
+Starting NN
+-1
+Starting NN
+-3
+Starting NN
+-20
+Starting NN
+-17
+Starting NN
+-25
+Starting NN
+-75
+Starting NN
+-15
+Starting NN
+-15
+Starting NN
+-4
+Starting NN
+-26
+Starting NN
+-316
+Starting NN
+-5
+Starting NN
+-72
+Starting NN
+-1
+Starting NN
+-4
+Starting NN
+-21
+Starting NN
+-17
+Starting NN
+-149
+Starting NN
+2
+Starting NN
+-24
+Starting NN
+-144
+Starting NN
+-149
+Starting NN
+-63
+Starting NN
+-1
+Starting NN
+-4
+Starting NN
+-38
+Starting NN
+-75
+Starting NN
+-82
+Starting NN
+-9
+Starting NN
+-25
+Starting NN
+-7
+Starting NN
+-7
+Starting NN
+-208
+Starting NN
+-64
+Starting NN
+-8
+Starting NN
+0
+Starting NN
+-42
+Starting NN
+1
+Starting NN
+-2
+Starting NN
+-30
+Starting NN
+-109
+Starting NN
+-179
+Starting NN
+-16
+Starting NN
+5
+Starting NN
+-26
+Starting NN
+-54
+Starting NN
+-2
+Starting NN
+-28
+Starting NN
+-2
+Starting NN
+-43
+Starting NN
+-6
+Starting NN
+-5
+Starting NN
+-2
+Starting NN
+1
+Starting NN
+-52
+Starting NN
+-6
+Starting NN
+-45
+Starting NN
+-4
+Starting NN
+0
+Starting NN
+-8
+Starting NN
+-2
+Starting NN
+0
+Starting NN
+-3
+Starting NN
+-84
+Starting NN
+-1
+Starting NN
+-35
+Starting NN
+-76
+Starting NN
+-70
+Starting NN
+-89
+Starting NN
+-70
+Starting NN
+-2
+Starting NN
+-19
+Starting NN
+-7
+Starting NN
+-28
+Starting NN
+-59
+Starting NN
+1
+Starting NN
+-31
+Starting NN
+-12
+Starting NN
+-47
+Starting NN
+-30
+Starting NN
+0
+Starting NN
+-17
+Starting NN
+-85
+Starting NN
+-119
+Starting NN
+-38
+Starting NN
+-62
+Starting NN
+-88
+Starting NN
+-168
+Starting NN
+-4
+Starting NN
+-9
+Starting NN
+-70
+Starting NN
+-19
+Starting NN
+-80
+Starting NN
+-27
+Starting NN
+-15
+Starting NN
+-21
+Starting NN
+2
+Starting NN
+0
+Starting NN
+-30
+Starting NN
+-14
+Starting NN
+-43
+Starting NN
+-54
+Starting NN
+-3
+Starting NN
+-24
+Starting NN
+-1
+Starting NN
+0
+Starting NN
+-11
+Starting NN
+-2
+Starting NN
+-9
+Starting NN
+-1
+Starting NN
+-10
+Starting NN
+-19
+Starting NN
+0
+Starting NN
+0
+Starting NN
+-1
+Starting NN
+-6
+Starting NN
+0
+Starting NN
+0
+Starting NN
+2
+Starting NN
+5
+Starting NN
+-20
+Starting NN
+-64
+Starting NN
+-21
+Starting NN
+-19
+Starting NN
+0
+Starting NN
+-5
+Starting NN
+-62
+Starting NN
+-18
+Starting NN
+-29
+Starting NN
+-30
+Starting NN
+-17
+Starting NN
+-7
+Starting NN
+-4
+Starting NN
+8
+Starting NN
+-1
+Starting NN
+0
+Starting NN
+-18
+Starting NN
+-16
+Starting NN
+-4
+Starting NN
+-3
+Starting NN
+-6
+Starting NN
+-5
+Starting NN
+-20
+Starting NN
+-7
+Starting NN
+-4
+Starting NN
+0
+Starting NN
+-5
+Starting NN
+-7
+Starting NN
+-1
+Starting NN
+1
+Starting NN
+-4
+Starting NN
+0
+{'': -756, '407812.0': -184, '543939.0': -153, '624585.0': -264, '445055.0': -417, '458085.0': -226, '519203.0': -146, '518792.0': -484, '600303.0': -35, '592609.0': -20, '425509.0': -78, '571431.0': -118, '451594.0': -530, '516770.0': -137, '570489.0': -16, '430947.0': -189, '545361.0': -510, '543213.0': -66, '459964.0': -358, '572122.0': -241, '594777.0': -809, '429664.0': -11, '543543.0': -137, '554429.0': -79, '457706.0': -395, '501896.0': -157, '543829.0': -173, '542303.0': -588, '434604.0': -17, '445988.0': -125, '458913.0': -92, '592743.0': -145, '588751.0': -132, '430948.0': -31, '430637.0': -66, '607054.0': -203, '592885.0': -711, '519317.0': -638, '455976.0': -861, '518692.0': -112, '595281.0': -342, '457775.0': -99, '501983.0': -102, '425766.0': -60, '519306.0': -544, '523253.0': -133, '456665.0': -202, '457477.0': -172, '452678.0': -194, '446334.0': -243, '592518.0': -351, '475247.0': -63, '570731.0': -89, '456030.0': -43, '605125.0': -186, '520471.0': -183, '429713.0': -66, '605141.0': -571, '593428.0': -214, '425664.0': -54, '546318.0': -584, '120074.0': -4, '519184.0': -321, '435063.0': -104, '400284.0': -125, '434670.0': -153, '467055.0': -137, '458675.0': -230, '474892.0': -73, '608070.0': -213, '456422.0': -287, '543401.0': -102, '488726.0': -386, '472528.0': -112, '476704.0': -81, '467793.0': -146, '461235.0': -197, '514888.0': -122, '502082.0': -279, '501981.0': -346, '516416.0': -149, '460075.0': -510, '518934.0': -55, '571697.0': -188, '452252.0': -82, '460576.0': -538, '471865.0': -780, '408047.0': -12, '572816.0': -341, '133380.0': -66, '453064.0': -49, '453568.0': -846, '501255.0': -21, '518614.0': -110, '592206.0': -437, '408234.0': -101, '435079.0': -59, '572821.0': -197, '542455.0': -107, '116338.0': -139, '542454.0': -157, '493316.0': -438, '457788.0': -42, '434658.0': -368, '502110.0': -579, '461858.0': -144, '578428.0': -153, '408045.0': -128, '475582.0': -126, '488862.0': -155, '501571.0': -198, '502517.0': -131, '572191.0': -471, '431151.0': -54, '527038.0': -181, '462564.0': 2, '434158.0': -622, '435622.0': -408, '547180.0': -683, '446263.0': -84, '489138.0': -31, '571740.0': -481, '453943.0': -264, '435522.0': -97, '408252.0': -112, '446359.0': -126, '516782.0': -499, '407781.0': -198, '543281.0': -200, '457705.0': -782, '474568.0': -151, '570256.0': -706, '476883.0': -58, '592626.0': -492, '346874.0': -68, '571976.0': -153, '519025.0': -30, '624577.0': -454, '425549.0': -30, '408307.0': -80, '461314.0': -673, '576397.0': -104, '276519.0': -49, '475174.0': -128, '435062.0': -209, '542255.0': -634, '444432.0': -374, '572041.0': -370, '572008.0': -216, '502671.0': -139, '431094.0': -38, '434636.0': -348, '431171.0': -30, '453923.0': -311, '605412.0': -106, '543063.0': -163, '493114.0': -320, '605113.0': -71, '460060.0': -32, '474832.0': -197, '453539.0': -67, '519299.0': -78, '543434.0': -120, '425783.0': -436, '134181.0': -164, '502226.0': -98, '547982.0': -314, '477195.0': -21, '543760.0': -233, '596059.0': -142, '425902.0': -17, '607387.0': -168, '450314.0': -258, '462101.0': -143, '452104.0': -231, '430832.0': -582, '136860.0': -251, '458731.0': -710, '544369.0': -209, '518626.0': -235, '429665.0': -37, '581527.0': -114, '607680.0': -556, '592647.0': -21, '453056.0': -308, '475253.0': -90, '443558.0': -157, '518577.0': -13, '448605.0': -86, '405395.0': -68, '489149.0': -106, '453400.0': -29, '457727.0': -512, '465784.0': -6, '542921.0': -141, '430945.0': -653, '467827.0': -496, '571448.0': -291, '506560.0': -87, '457708.0': -520, '444843.0': -164, '457759.0': -201, '444482.0': -494, '457763.0': -28, '571875.0': -236, '519295.0': -155, '519068.0': -14, '448801.0': -215, '446386.0': -287, '573131.0': -47, '537953.0': -159, '425796.0': -177, '429667.0': -67, '543333.0': -135, '444876.0': -224, '547989.0': -106, '594809.0': -463, '493351.0': -97, '466320.0': -585, '408299.0': -33, '425567.0': -100, '519058.0': -208, '541645.0': -519, '493596.0': -49, '456715.0': -587, '460086.0': -477, '545350.0': -316, '543807.0': -561, '449107.0': -110, '543238.0': -151, '453203.0': -118, '461865.0': -169, '150212.0': -88, '458015.0': -203, '457803.0': -660, '500208.0': -153, '452239.0': -76, '622110.0': -158, '592192.0': -250, '489267.0': -41, '425496.0': -2, '502285.0': -10, '592261.0': -469, '452220.0': -55, '463610.0': -38, '519333.0': -125, '608672.0': -19, '543216.0': -77, '449181.0': -272, '543257.0': -283, '542340.0': -184, '500871.0': -221, '519208.0': -72, '407862.0': -5, '628356.0': -101, '519048.0': -128, '502143.0': -242, '455759.0': -227, '407893.0': -59, '408314.0': -166, '476270.0': -18, '453211.0': -74, '461815.0': -73, '430605.0': -111, '460055.0': -26, '430404.0': -76, '594838.0': -36, '446481.0': -118, '217100.0': -16, '430001.0': -74, '605486.0': -158, '572761.0': -236, '545341.0': -477, '448602.0': -138, '456781.0': -8, '514917.0': -158, '121347.0': -2, '571788.0': -167, '434540.0': -24, '501800.0': -19, '543742.0': -37, '503556.0': -232, '451713.0': -22, '408236.0': -73, '425560.0': -19, '430611.0': -14, '518911.0': -6, '461416.0': -105, '488852.0': -2, '433217.0': -77, '457787.0': -84, '468406.0': -14, '605227.0': -29, '648717.0': -47, '475100.0': -78, '456488.0': -194, '514913.0': -77, '467143.0': -16, '502210.0': -535, '453269.0': -12, '400085.0': -202, '430603.0': -4, '430203.0': -47, '502117.0': -20, '502481.0': -302, '446381.0': -81, '452234.0': -293, '150029.0': -263, '466988.0': -38, '435401.0': -72, '430321.0': -48, '543590.0': -160, '425784.0': -3, '543776.0': -155, '435078.0': -7, '518953.0': -50, '493472.0': -52, '543484.0': -294, '518568.0': -18, '573627.0': -23, '488721.0': -253, '572365.0': -80, '501647.0': -22, '592178.0': -307, '541650.0': -255, '518902.0': -24, '502582.0': -51, '518960.0': -4, '499864.0': -4, '592166.0': 0, '593525.0': -19, '452655.0': -618, '456121.0': -61, '608365.0': -175, '595386.0': -9, '467070.0': -45, '519390.0': -1, '630111.0': -364, '518653.0': -33, '502317.0': -55, '517370.0': -56, '519071.0': -7, '571970.0': -86, '502205.0': -12, '459431.0': -237, '571506.0': -109, '543068.0': -108, '516809.0': -35, '571771.0': -220, '543302.0': -41, '502409.0': -1, '452035.0': -5, '534627.0': -95, '599096.0': -11, '542993.0': -243, '425557.0': -7, '485567.0': -281, '458582.0': -7, '621035.0': -225, '499624.0': -69, '465674.0': -2, '430910.0': -1, '517369.0': -141, '424825.0': -168, '592696.0': -548, '448674.0': -3, '542994.0': -11, '429666.0': -54, '605512.0': -112, '543768.0': -214, '595025.0': -8, '598265.0': -605, '501659.0': -199, '474494.0': 3, '543305.0': -435, '596748.0': -226, '592239.0': -36, '570560.0': -91, '596143.0': -50, '452254.0': -488, '571868.0': -1, '430897.0': -20, '545338.0': -72, '571553.0': -27, '572019.0': -40, '488681.0': -161, '628329.0': -82, '519107.0': 0, '493128.0': -4, '571761.0': -3, '488703.0': 0, '467798.0': -9, '607385.0': -174, '553988.0': -63, '594940.0': -7, '285078.0': -33, '431145.0': -27, '501245.0': 2, '593643.0': -11, '570717.0': -102, '434778.0': -14, '488689.0': -10, '451089.0': -64, '608336.0': -306, '543685.0': -162, '571665.0': 0, '425543.0': -4, '594988.0': -422, '621043.0': -147, '474443.0': -59, '488810.0': 0, '460099.0': -129, '570482.0': -52, '605323.0': -15, '593871.0': -128, '425834.0': -226, '453895.0': -17, '458689.0': -2, '553993.0': -254, '592863.0': -98, '592620.0': -80, '621439.0': -371, '502126.0': -75, '543706.0': -32, '518618.0': -247, '596019.0': -160, '570267.0': -444, '456714.0': -7, '476633.0': -18, '571825.0': -17, '544925.0': -40, '516811.0': -33, '519083.0': -4, '457760.0': -8, '594824.0': -70, '489305.0': -6, '519345.0': -7, '429711.0': -147, '574831.0': -1, '500743.0': -93, '594828.0': -16, '491676.0': -242, '571918.0': -35, '430652.0': -34, '502261.0': -75, '502100.0': -108, '502054.0': -353, '572138.0': -8, '489067.0': -7, '488671.0': -8, '518735.0': -4, '501303.0': -67, '596144.0': -95, '593934.0': -158, '527043.0': -95, '430681.0': -1, '502676.0': -2, '444379.0': -139, '524968.0': -8, '573135.0': -98, '518170.0': 0, '448170.0': -7, '608701.0': -63, '542208.0': 2, '543321.0': -4, '543038.0': -4, '502034.0': -5, '571466.0': -3, '543094.0': -52, '543569.0': 1, '477165.0': -26, '572039.0': -554, '465753.0': -29, '544725.0': -219, '542583.0': -58, '624424.0': -390, '611177.0': -114, '656941.0': -265, '457789.0': -4, '592710.0': -35, '593495.0': -22, '452095.0': 0, '606466.0': -88, '446308.0': 0, '592621.0': -37, '572128.0': -8, '572204.0': -194, '595005.0': -27, '605509.0': -75, '606299.0': -150, '457449.0': -4, '473724.0': -2, '595885.0': -31, '400121.0': -11, '543633.0': -6, '625329.0': -7, '594555.0': 0, '474249.0': -4, '592230.0': -47, '571437.0': -283, '543376.0': -4, '608671.0': -229, '534606.0': -65, '455104.0': 0, '572182.0': -32, '457926.0': -6, '607208.0': -159, '645848.0': -2, '435263.0': 3, '543308.0': -21, '592273.0': -160, '445095.0': -3, '542436.0': -21, '595879.0': -196, '493343.0': -8, '519082.0': -11, '460077.0': -3, '592596.0': -1, '552662.0': -12, '502523.0': -71, '608369.0': -130, '450641.0': -4, '605253.0': -1, '594807.0': -411, '492841.0': -28, '460131.0': -14, '593647.0': -45, '570615.0': -40, '518755.0': 0, '598284.0': -35, '591720.0': -56, '543261.0': 0, '605131.0': 0, '592274.0': 0, '488818.0': -41, '543105.0': -68, '592680.0': -41, '542979.0': -250, '435623.0': 0, '607776.0': -81, '596146.0': -485, '489232.0': 0, '605439.0': -9, '572804.0': -1, '571681.0': -61, '596115.0': -125, '572073.0': -238, '501986.0': -17, '595023.0': -5, '571980.0': -209, '493193.0': -16, '649557.0': -87, '643603.0': -21, '518466.0': -116, '595963.0': -71, '571757.0': -82, '457574.0': -2, '596847.0': -17, '518586.0': -58, '666560.0': -10, '547957.0': -154, '608577.0': -516, '605480.0': -251, '542364.0': -120, '593523.0': -6, '465041.0': -6, '457454.0': -3, '571946.0': -2, '518625.0': -1, '501888.0': 0, '425877.0': -1, '592325.0': -280, '518991.0': -2, '434567.0': -1, '542992.0': 0, '600301.0': -36, '571830.0': -65, '608703.0': -27, '593160.0': -110, '643393.0': -99, '592567.0': -84, '596119.0': -19, '592419.0': -45, '571841.0': -12, '595777.0': -103, '518649.0': -73, '547172.0': 0, '542194.0': -7, '605183.0': -7, '474319.0': -6, '592835.0': -4, '546991.0': -192, '641313.0': -160, '592731.0': -11, '592407.0': 0, '572114.0': -44, '519445.0': -1, '455369.0': -14, '455755.0': 0, '575929.0': -29, '518490.0': -32, '607223.0': -5, '624428.0': -193, '607043.0': -232, '600869.0': -95, '592808.0': -69, '519222.0': -5, '592387.0': -108, '502273.0': -7, '570481.0': -19, '474865.0': -10, '621311.0': -138, '608324.0': -184, '609275.0': -62, '488771.0': -3, '628338.0': -227, '594694.0': -69, '602922.0': -15, '475243.0': -1, '605508.0': -61, '606115.0': -96, '643217.0': -368, '519421.0': -3, '571718.0': -145, '574847.0': -17, '608061.0': -32, '573113.0': -13, '606192.0': -268, '502544.0': -31, '592450.0': -316, '592122.0': -25, '435180.0': 0, '571745.0': -386, '571912.0': 0, '621020.0': -118, '623182.0': -68, '640461.0': -153, '605137.0': -142, '460269.0': -6, '506924.0': -3, '592444.0': -194, '493329.0': -73, '621563.0': -39, '660162.0': -80, '543329.0': 2, '606132.0': -61, '454975.0': -3, '593700.0': -118, '642162.0': -26, '500874.0': -179, '571812.0': -9, '503437.0': 1, '596451.0': -44, '641958.0': -1, '596129.0': -9, '641531.0': -57, '621566.0': -60, '592669.0': -338, '622534.0': -277, '578570.0': 0, '641319.0': -44, '608325.0': -3, '451705.0': 0, '547004.0': -40, '570639.0': 0, '650490.0': -17, '519346.0': -153, '594576.0': -19, '621002.0': -33, '502029.0': -1, '641820.0': -262, '595426.0': -5, '642707.0': -61, '595375.0': -42, '571602.0': -36, '591994.0': -35, '593528.0': -258, '591741.0': -110, '451192.0': -55, '624414.0': -13, '640447.0': -107, '641355.0': -151, '547912.0': -9, '543611.0': 2, '571951.0': 0, '621471.0': -49, '572669.0': -28, '622441.0': -5, '642423.0': -64, '621559.0': -13, '607471.0': -7, '543459.0': 0, '664023.0': -184, '605548.0': -137, '622666.0': -89, '546990.0': -12, '545337.0': -4, '607752.0': -13, '641553.0': -323, '614173.0': -91, '657557.0': -86, '596103.0': -63, '642094.0': 4, '621433.0': -62, '593527.0': 2, '542513.0': -7, '595144.0': -78, '596142.0': 0, '621446.0': -127, '605233.0': -103, '656305.0': -91, '596105.0': -44, '502151.0': -1, '573088.0': -29, '657145.0': -1, '622210.0': -3, '624507.0': -20, '620439.0': -17, '624407.0': -25, '592685.0': -75, '572228.0': -15, '643565.0': -15, '666561.0': -4, '642180.0': -26, '608384.0': -316, '622270.0': -5, '640449.0': -72, '516949.0': -1, '506703.0': -4, '643335.0': -21, '643265.0': -17, '608385.0': -149, '622497.0': 2, '664057.0': -24, '646240.0': -144, '664056.0': -149, '656669.0': -63, '605170.0': -1, '519037.0': -4, '645277.0': -38, '642708.0': -75, '547170.0': -82, '595373.0': -9, '605204.0': -25, '592663.0': -7, '527049.0': -7, '656555.0': -208, '642086.0': -64, '641857.0': -8, '518595.0': 0, '623993.0': -42, '595751.0': 1, '641598.0': -2, '607369.0': -30, '656185.0': -109, '605119.0': -179, '620446.0': -16, '607297.0': 5, '657077.0': -26, '592348.0': -54, '542642.0': -2, '641487.0': -28, '591971.0': -2, '600524.0': -43, '669720.0': -6, '595238.0': -5, '572227.0': -2, '645302.0': 1, '641432.0': -52, '595943.0': -6, '570799.0': -45, '571657.0': -4, '608700.0': 0, '572233.0': -8, '545121.0': -2, '543089.0': 0, '641796.0': -3, '609280.0': -84, '657658.0': -1, '641856.0': -35, '664068.0': -76, '624636.0': -70, '622682.0': -89, '622168.0': -70, '607468.0': -2, '643396.0': -19, '501213.0': -7, '608597.0': -28, '608654.0': -59, '622713.0': 1, '666971.0': -31, '623520.0': -12, '571595.0': -47, '641933.0': -30, '571679.0': 0, '650402.0': -17, '660670.0': -85, '594953.0': -119, '594011.0': -38, '641583.0': -62, '614177.0': -88, '665742.0': -168, '621044.0': -4, '641645.0': -9, '640457.0': -70, '641684.0': -19, '595909.0': -80, '642715.0': -27, '641525.0': -15, '607430.0': -21, '605474.0': 2, '605520.0': 0, '500135.0': -30, '622226.0': -14, '605361.0': -43, '641343.0': -54, '628336.0': -3, '664058.0': -24, '543377.0': -1, '593993.0': 0, '592859.0': -11, '571851.0': -2, '553902.0': -9, '644337.0': -1, '663656.0': -10, '621453.0': -19, '664842.0': 0, '425772.0': 0, '592200.0': -1, '641658.0': -6, '642211.0': 0, '521692.0': 0, '643446.0': 2, '595222.0': 5, '543194.0': -20, '657656.0': -64, '664040.0': -21, '656811.0': -19, '516472.0': 0, '666969.0': -5, '656775.0': -62, '621550.0': -18, '621493.0': -29, '621573.0': -30, '621028.0': -17, '649966.0': -7, '608475.0': -4, '622046.0': 8, '623205.0': -1, '664167.0': 0, '622569.0': -18, '641477.0': -16, '641505.0': -4, '642133.0': -3, '596012.0': -6, '623214.0': -5, '621514.0': -20, '602115.0': -7, '621466.0': -4, '664702.0': 0, '642770.0': -5, '605244.0': -7, '582473.0': -1, '605612.0': 1, '542932.0': -4, '624641.0': 0}

@@ -5,15 +5,14 @@ import csv
 input_files = ["processed_data_2015.csv"]
 
 def make_prediction(given):
-	model_path = "model.ckpt"
+	model_path = "checkpoints/model.ckpt-10000"
 	detection_graph = tf.Graph()
 	with tf.Session(graph=detection_graph) as sess:
-		 # Load the graph with the trained states
-	    loader = tf.train.import_meta_graph(model_path+'.meta')
-	    loader.restore(sess, model_path)
-	    _scores = sess.run(feed_dict = {x: given})
-
-    	return _scores
+		# Load the graph with the trained states
+		loader = tf.train.import_meta_graph(model_path+'.meta')
+		loader.restore(sess, model_path)
+		_scores = sess.run([], feed_dict = {output_tensor: given})
+		return _scores
 
 def main():
 	players = {}
@@ -31,14 +30,18 @@ def main():
 				if not(row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == ""): # add or row['home_team'] == ""
 					new_input = [float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3,  int(float(row['total_bases']))] # row['home_team'],  # team_dict[row['home_team']],  
 				
-				# determine what we'll be modifying in the dictionary
-				player = row[diamond_dict[row['hit_location']]]
-				if player not in players.keys():
-					players[player] = make_prediction(new_input) - int(float(row['total_bases']))
-				else:
-					players[player] += make_prediction(new_input) - int(float(row['total_bases']))
+					print(make_prediction(new_input))
+
+				# # determine what we'll be modifying in the dictionary
+				# player = row[diamond_dict[row['hit_location']]]
+				# if player not in players.keys():
+				# 	players[player] = make_prediction(new_input) - 6 - int(float(row['total_bases']))
+				# else:
+				# 	players[player] += make_prediction(new_input) - 6 - int(float(row['total_bases']))
 
 		file_r.close()
 
 	for item in players:
 		print(item)
+
+main()
