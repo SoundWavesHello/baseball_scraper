@@ -106,7 +106,7 @@ def predict(eval_data, eval_labels, classifier):
 
 def main(input_files):
 	inputs = []
-	players = {}
+	years = {'2015': {}, '2016': {}, '2017': {}, '2018': {}}
 	diamond = ["fielder_1", "fielder_2", "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7", "fielder_8", "fielder_9"]
 
 	team_dict = {"ARI": 0, "ATL": 1, "BAL": 2, "BOS": 3, "CHC": 4, "CWS": 5, "CIN": 6, "CLE": 7, "COL": 8, "DET": 9, "MIA": 10, "HOU": 11, "KC": 12, "LAA": 13, "LAD":14, "MIL":15, "MIN":16, "NYM": 17, "NYY":18, "OAK":19, "PHI":20, "PIT": 21, "SD": 22, "SF": 23, "SEA": 24, "STL": 25, "TB": 26, "TEX": 27, "TOR": 28, "WSH": 29 }
@@ -141,11 +141,11 @@ def main(input_files):
 					# for some reason, we don't have pitcher and catcher id's in here???
 					if location != 0 and location != 1:
 						player = row[diamond[location]]
-
-						if player in players.keys():
-							players[player].append(new_input)
+						current_dict = years[input_file[-8:-4]]
+						if player in current_dict.keys():
+							current_dict[player].append(new_input)
 						else:
-							players[player] = [new_input]
+							current_dict[player] = [new_input]
 		file_r.close()
 
 		print(input_file, "missing data:", missing)
@@ -213,28 +213,35 @@ def main(input_files):
 
 
 	# start evaluating players
-	individual_results = {}
-	for key, value in players.items():
-		# key is player id
-		# value is all of the plays identified with them
-		curr_x = []
-		curr_y = []
-		for row in value:
-			curr_x.append(row[:-1])
-			curr_y.append(row[-1])
-		individual_predictions = list(predict(numpy.asarray(curr_x), numpy.asarray(curr_y), model))
-		actual_pred = []
-		for row in individual_predictions:
-			actual_pred.append(row['classes'] - 6)
+	yearly_results = {}
+	for year, players in years.items():
+		individual_results = {}
+		for key, value in players.items():
+			# key is player id
+			# value is all of the plays identified with them
+			curr_x = []
+			curr_y = []
+			for row in value:
+				curr_x.append(row[:-1])
+				curr_y.append(row[-1])
+			individual_predictions = list(predict(numpy.asarray(curr_x), numpy.asarray(curr_y), model))
+			actual_pred = []
+			for row in individual_predictions:
+				actual_pred.append(row['classes'] - 6)
 
-		tally = 0
-		for i in range(len(curr_y)):
-			tally += actual_pred[i] - (curr_y[i] - 6)
+			tally = 0
+			for i in range(len(curr_y)):
+				# overlook drastically missed predictions
+				if actual_pred[i] < -1:
+					continue
+				tally += actual_pred[i] - (curr_y[i] - 6)
 
-		print(tally)
-		individual_results[key] = tally
+			print(tally)
+			individual_results[key] = tally
+
+		yearly_results[year] = individual_results
 	
-	print(individual_results)
+	print(yearly_results)
 	
 
 
