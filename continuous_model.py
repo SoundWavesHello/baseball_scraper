@@ -13,7 +13,7 @@ NUM_EPOCHS = 100
 
 def neural_net(features, labels, mode):
 
-	print("Starting NN")
+	# print("Starting NN")
 
 	dense_layer_1 = tf.layers.dense(inputs=features, units=20, activation=tf.nn.relu)
 	dense_layer_2 = tf.layers.dense(inputs=dense_layer_1, units=20, activation=tf.nn.relu)
@@ -232,18 +232,33 @@ def main(input_files):
 			tally = 0
 			for i in range(len(curr_y)):
 				# overlook drastically missed predictions
-				if actual_pred[i] < -1:
-					continue
+				# if actual_pred[i] < -1:
+				# 	continue
 				tally += actual_pred[i] - (curr_y[i] - 6)
 
-			print(tally)
-			individual_results[key] = tally
+			# print(tally)
+			individual_results[key] = {"total_bases": tally, "opportunities": len(curr_y)}
 
 		yearly_results[year] = individual_results
 	
-	print(yearly_results)
+	return yearly_results
 	
 
+def write_seasons(codified_results):
+	header_dict = {'player_id': 1, 'total_bases': 1, 'opportunities': 1}
+	for year, players in codified_results.items():
+		filename = year + ".csv"
+		with open(filename, 'a') as file_w:
+			writer = csv.DictWriter(file_w, header_dict.keys())
+			for player_id, results in players.items():
+				new_row = {}
+				new_row['player_id'] = player_id
+				new_row['total_bases'] = results['total_bases']
+				new_row['opportunities'] = results['opportunities']
+				writer.writerow(new_row)
+		file_w.close()
 
 
-main(input_files)
+
+stuff = main(input_files)
+write_seasons(stuff)
