@@ -142,11 +142,12 @@ def main(input_files):
 					if location != 0 and location != 1:
 						player = row[diamond[location]]
 						current_dict = years[input_file[-8:-4]]
-						if player in current_dict.keys():
-							current_dict[player].append(new_input)
+						if (player, location + 1) in current_dict.keys():
+							current_dict[(player, location + 1)].append(new_input)
 						else:
-							current_dict[player] = [new_input]
+							current_dict[(player, location + 1)] = [new_input]
 		file_r.close()
+		# print(years['2015'].keys())
 
 		print(input_file, "missing data:", missing)
 
@@ -217,7 +218,7 @@ def main(input_files):
 	for year, players in years.items():
 		individual_results = {}
 		for key, value in players.items():
-			# key is player id
+			# key is (player id, location_played)
 			# value is all of the plays identified with them
 			curr_x = []
 			curr_y = []
@@ -245,14 +246,17 @@ def main(input_files):
 	
 
 def write_seasons(codified_results):
-	header_dict = {'player_id': 1, 'total_bases': 1, 'opportunities': 1}
+	header_dict = {'player_id': 1, 'position': 1, 'total_bases': 1, 'opportunities': 1}
 	for year, players in codified_results.items():
 		filename = year + ".csv"
 		with open(filename, 'a') as file_w:
 			writer = csv.DictWriter(file_w, header_dict.keys())
-			for player_id, results in players.items():
+			for player_info, results in players.items():
+				player_id = player_info[0]
+				position = player_info[1]
 				new_row = {}
 				new_row['player_id'] = player_id
+				new_row['position'] = position
 				new_row['total_bases'] = results['total_bases']
 				new_row['opportunities'] = results['opportunities']
 				writer.writerow(new_row)
