@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy
 import csv
+from pybaseball import playerid_lookup
 
 input_files = ['processed_data_2015.csv', 'processed_data_2016.csv', 'processed_data_2017.csv', 'processed_data_2018.csv']
 PERCENT_TRAINING = 0.8
