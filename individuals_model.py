@@ -9,6 +9,8 @@ BATCH_SIZE = 200
 STEPS = 10000
 LEARNING_RATE = 0.001
 NUM_EPOCHS = 100
+target_id = ""
+target_position = []
 
 
 
@@ -106,7 +108,14 @@ def predict(eval_data, eval_labels, classifier):
 
 
 def main(input_files):
+	# get the player that we'll be excluding from the neural network
+	first = input('First Name: ')
+	last = input('Last Name: ')
+	target_id = playerid_lookup(last, first)['key_mlbam'][1] # sometimes need to change index depending on player name
+
 	inputs = []
+	training = []
+	testing = []
 	years = {'2015': {}, '2016': {}, '2017': {}, '2018': {}}
 	diamond = ["fielder_1", "fielder_2", "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7", "fielder_8", "fielder_9"]
 
@@ -130,7 +139,7 @@ def main(input_files):
 				else:
 					# creates input to be fed into the NN
 					new_input = [float(row['hc_x']), float(row['hc_y']), float(row['launch_angle']), float(row['launch_speed']), float(row['estimated_ba_using_speedangle']), int(float(row['outs_when_up'])), on_1, on_2, on_3,  int(float(row['total_bases'])) + 6] # row['home_team'],  # team_dict[row['home_team']],  
-					inputs.append(new_input)
+					# inputs.append(new_input)
 					if int(float(row['total_bases'])) > 6:
 						print("Above 6", int(float(row['total_bases'])))
 
@@ -142,23 +151,27 @@ def main(input_files):
 					# for some reason, we don't have pitcher and catcher id's in here???
 					if location != 0 and location != 1:
 						player = row[diamond[location]]
-						current_dict = years[input_file[-8:-4]]
-						if (player, location + 1) in current_dict.keys():
-							current_dict[(player, location + 1)].append(new_input)
-						else:
-							current_dict[(player, location + 1)] = [new_input]
+						if player != "":
+							# Add to training and testing set
+							if float(player) == target_id:
+								testing.append(new_input)
+								if int(float(row["hit_location"])) not in target_position:
+									target_position.append(int(float(row["hit_location"])))
+								# print("Added to testing")
+							else:
+								training.append(new_input)
+
+							current_dict = years[input_file[-8:-4]]
+							if (player, location + 1) in current_dict.keys():
+								current_dict[(player, location + 1)].append(new_input)
+							else:
+								current_dict[(player, location + 1)] = [new_input]
 		file_r.close()
 		# print(years['2015'].keys())
 
 		print(input_file, "missing data:", missing)
 
 		print("closed file")
-
-	numpy.random.shuffle(inputs)
-
-	print("completed shuffle")
-	split = round(PERCENT_TRAINING * len(inputs))
-	training, testing = inputs[:split], inputs[split:]
 
 	print("completed split")
 
@@ -217,8 +230,11 @@ def main(input_files):
 	# start evaluating players
 	yearly_results = {}
 	for year, players in years.items():
+		print("Processing", year)
 		individual_results = {}
 		for key, value in players.items():
+			if int(key[1]) not in target_position:
+				continue
 			# key is (player id, location_played)
 			# value is all of the plays identified with them
 			curr_x = []
@@ -243,13 +259,14 @@ def main(input_files):
 
 		yearly_results[year] = individual_results
 	
-	return yearly_results
+	return (last, yearly_results)
 	
 
-def write_seasons(codified_results):
+def write_seasons(name, codified_results):
+	print("Writing Seasons")
 	header_dict = {'player_id': 1, 'position': 1, 'total_bases': 1, 'opportunities': 1}
 	for year, players in codified_results.items():
-		filename = year + ".csv"
+		filename = year + "_" + name + ".csv"
 		with open(filename, 'a') as file_w:
 			writer = csv.DictWriter(file_w, header_dict.keys())
 			for player_info, results in players.items():
@@ -265,5 +282,5 @@ def write_seasons(codified_results):
 
 
 
-stuff = main(input_files)
-write_seasons(stuff)
+name, stuff = main(input_files)
+write_seasons(name, stuff)

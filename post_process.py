@@ -2,6 +2,8 @@ import csv
 from pybaseball import playerid_reverse_lookup
 
 input_files = ['2018_final.csv']
+years = ["2015", "2016", "2017", "2018"]
+individuals = ["betts", "cano", "chapman", "hosmer", "kiermaier", "simmons", "trout"]
 
 def finalize(input_files):
 	header_dict = {"last_name": 1, "first_name": 1, "position": 1, "total_bases": 1, "opportunities": 1, "percentage": 1, "player_id": 1}
@@ -67,4 +69,13 @@ def min_opportunties(num_min, input_files):
 			file_w.close()
 		file_r.close()
 
-min_opportunties(100, input_files)
+def individuals_files(years, people):
+	file_names = []
+	for year in years:
+		for person in people:
+			name = year + "_" + person + ".csv"
+			file_names.append(name)
+	return file_names
+
+current = individuals_files(years, individuals)
+finalize(current)
