@@ -1,8 +1,8 @@
 import csv
 from pybaseball import playerid_reverse_lookup
-import seaborn as sn
-import pandas as pd
-import matplotlib.pyplot as plt
+# import seaborn as sn
+# import pandas as pd
+# import matplotlib.pyplot as plt
 
 
 input_files = ['2018_final.csv']
@@ -107,8 +107,8 @@ def calc_replacement(input_files):
 					opportunity_tally[row['position']] += int(row['opportunities'])
 				# print(base_tally)
 
-	print(base_tally)
-	print(opportunity_tally)
+	# print(base_tally)
+	# print(opportunity_tally)
 	for position in base_tally.keys():
 		base_per_opp = base_tally[position] / opportunity_tally[position]
 		replacements[position] = round(base_per_opp, 3)
@@ -123,6 +123,6 @@ def create_plot(confusion_matrix):
 	sn.heatmap(df_cm, annot=True)
 
 # min_opportunties(100, input_files)
-# calc_replacement(input_files)
+total_files = individuals_files(years, ['cespedes'])
+calc_replacement(total_files)
 
-create_plot(array)

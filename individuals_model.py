@@ -111,7 +111,10 @@ def main(input_files):
 	# get the player that we'll be excluding from the neural network
 	first = input('First Name: ')
 	last = input('Last Name: ')
-	target_id = playerid_lookup(last, first)['key_mlbam'][1] # sometimes need to change index depending on player name
+	possibles = (playerid_lookup(last, first))
+	print(possibles)
+	index = int(input('Which player do you want?'))
+	target_id = possibles['key_mlbam'][index] # sometimes need to change index depending on player name
 
 	inputs = []
 	training = []
@@ -269,6 +272,7 @@ def write_seasons(name, codified_results):
 		filename = year + "_" + name + ".csv"
 		with open(filename, 'a') as file_w:
 			writer = csv.DictWriter(file_w, header_dict.keys())
+			writer.writeheader()
 			for player_info, results in players.items():
 				player_id = player_info[0]
 				position = player_info[1]
