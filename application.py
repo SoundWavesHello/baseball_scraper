@@ -21,7 +21,7 @@ def csvPreProcessing(input_file, output_file):
 
 	print("IN PRE-PROCESSING")
 
-	header_dict = {'description': 1,'hit_location': 1,'on_3b': 1,'on_2b': 1,'on_1b': 1,'outs_when_up': 1,'hc_x': 1,'hc_y': 1,'hit_distance_sc': 1,'launch_speed': 1,'launch_angle': 1,'fielder_3': 1,'fielder_4': 1,'fielder_5': 1,'fielder_6': 1,'fielder_7': 1,'fielder_8': 1,'fielder_9': 1,'if_fielding_alignment': 1,'of_fielding_alignment': 1,'bat_score': 1,'post_bat_score': 1,'game_date': 1, 'home_team':1, 'batter':1, 'estimated_ba_using_speedangle':1, 'inning_topbot':1, 'total_bases':1}
+	header_dict = {'description': 1,'hit_location': 1,'on_3b': 1,'on_2b': 1,'on_1b': 1,'outs_when_up': 1,'hc_x': 1,'hc_y': 1,'hit_distance_sc': 1,'launch_speed': 1,'launch_angle': 1,'fielder_3': 1,'fielder_4': 1,'fielder_5': 1,'fielder_6': 1,'fielder_7': 1,'fielder_8': 1,'fielder_9': 1,'if_fielding_alignment': 1,'of_fielding_alignment': 1,'bat_score': 1,'post_bat_score': 1,'game_date': 1, 'home_team':1, 'away_team':1, 'batter':1, 'estimated_ba_using_speedangle':1, 'inning_topbot':1, 'total_bases':1}
 	with open(input_file) as file_r:
 		with open(output_file,'a') as file_w:
 			# writer = csv.writer(file_w)
@@ -37,7 +37,7 @@ def csvPreProcessing(input_file, output_file):
 			for i, old_row in enumerate(revised):
 				if (i % 1000 == 0):
 					print(i)
-				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance_sc','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
+				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance_sc','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'away_team' 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
 				if old_row['description'].startswith('hit_into_play'): # store the hit data
 					new_row = {}
 					for attribute, data in old_row.items():

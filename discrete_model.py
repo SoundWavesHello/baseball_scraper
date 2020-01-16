@@ -9,6 +9,7 @@ BATCH_SIZE = 200
 STEPS = 10000
 LEARNING_RATE = 0.001
 NUM_EPOCHS = 100
+team_dict = {"ARI": 0, "ATL": 1, "BAL": 2, "BOS": 3, "CHC": 4, "CWS": 5, "CIN": 6, "CLE": 7, "COL": 8, "DET": 9, "MIA": 10, "HOU": 11, "KC": 12, "LAA": 13, "LAD":14, "MIL":15, "MIN":16, "NYM": 17, "NYY":18, "OAK":19, "PHI":20, "PIT": 21, "SD": 22, "SF": 23, "SEA": 24, "STL": 25, "TB": 26, "TEX": 27, "TOR": 28, "WSH": 29 }
 
 
 
@@ -105,7 +106,7 @@ def predict(eval_data, eval_labels, classifier):
 
 
 
-def main(input_files):
+def main(input_files, player_centered):
 	inputs = []
 	years = {'2015': {}, '2016': {}, '2017': {}, '2018': {}}
 	diamond = ["fielder_1", "fielder_2", "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7", "fielder_8", "fielder_9"]
@@ -141,12 +142,21 @@ def main(input_files):
 					
 					# for some reason, we don't have pitcher and catcher id's in here???
 					if location != 0 and location != 1:
-						player = row[diamond[location]]
 						current_dict = years[input_file[-8:-4]]
-						if (player, location + 1) in current_dict.keys():
-							current_dict[(player, location + 1)].append(new_input)
+						
+						player = row[diamond[location]]
+
+						if row['inning_topbot'] == 'TOP':
+							team = team_dict[row['home_team']]
 						else:
-							current_dict[(player, location + 1)] = [new_input]
+							team = team_dict[row['away_team']]
+
+						if (player, location + 1) in current_dict.keys():
+							current_dict[(player, location + 1, team)].append(new_input)
+						else:
+							current_dict[(player, location + 1, team)] = [new_input]
+
+
 		file_r.close()
 		# print(years['2015'].keys())
 
@@ -219,7 +229,7 @@ def main(input_files):
 	for year, players in years.items():
 		individual_results = {}
 		for key, value in players.items():
-			# key is (player id, location_played)
+			# key is (player id, location_played, team id [from team_dict])
 			# value is all of the plays identified with them
 			curr_x = []
 			curr_y = []
@@ -247,7 +257,7 @@ def main(input_files):
 	
 
 def write_seasons(codified_results):
-	header_dict = {'player_id': 1, 'position': 1, 'total_bases': 1, 'opportunities': 1}
+	header_dict = {'player_id': 1, 'position': 1, 'team':1, 'total_bases': 1, 'opportunities': 1}
 	for year, players in codified_results.items():
 		filename = year + ".csv"
 		with open(filename, 'a') as file_w:
@@ -255,9 +265,11 @@ def write_seasons(codified_results):
 			for player_info, results in players.items():
 				player_id = player_info[0]
 				position = player_info[1]
+				team = player_info[2]
 				new_row = {}
 				new_row['player_id'] = player_id
 				new_row['position'] = position
+				new_row['team'] = team_dict[team]
 				new_row['total_bases'] = results['total_bases']
 				new_row['opportunities'] = results['opportunities']
 				writer.writerow(new_row)
