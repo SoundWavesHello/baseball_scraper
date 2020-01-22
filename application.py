@@ -4,8 +4,8 @@ import pandas as pd
 import csv
 
 # file names
-all_data_file_name = 'raw_data_2019.csv'
-processed_data_file_name = 'processed_data_2019.csv'
+all_data_file_name = 'raw_data_2015.csv'
+processed_data_file_name = 'processed_data_2015.csv'
 
 # print a nice greeting.
 def getInfo(input_file):
@@ -37,7 +37,7 @@ def csvPreProcessing(input_file, output_file):
 			for i, old_row in enumerate(revised):
 				if (i % 1000 == 0):
 					print(i)
-				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance_sc','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'away_team' 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
+				attributes = ['description','hit_location','on_3b','on_2b','on_1b','outs_when_up','hc_x','hc_y','hit_distance_sc','launch_speed','launch_angle','fielder_3','fielder_4','fielder_5','fielder_6','fielder_7','fielder_8','fielder_9','if_fielding_alignment','of_fielding_alignment','bat_score','post_bat_score','game_date', 'home_team', 'away_team', 'batter', 'estimated_ba_using_speedangle', 'inning_topbot']
 				if old_row['description'].startswith('hit_into_play'): # store the hit data
 					new_row = {}
 					for attribute, data in old_row.items():
