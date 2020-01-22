@@ -3,7 +3,7 @@ import numpy
 import csv
 from pybaseball import playerid_lookup
 
-input_files = ['processed_data_2015.csv', 'processed_data_2016.csv', 'processed_data_2017.csv', 'processed_data_2018.csv']
+input_files = ['processed_data_2015.csv', 'processed_data_2016.csv', 'processed_data_2017.csv', 'processed_data_2018.csv', 'processed_data_2019.csv']
 PERCENT_TRAINING = 0.8
 BATCH_SIZE = 200
 STEPS = 10000
@@ -106,7 +106,7 @@ def predict(eval_data, eval_labels, classifier):
 
 
 
-def main(input_files, player_centered):
+def main(input_files):
 	inputs = []
 	years = {'2015': {}, '2016': {}, '2017': {}, '2018': {}}
 	diamond = ["fielder_1", "fielder_2", "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7", "fielder_8", "fielder_9"]
@@ -126,7 +126,7 @@ def main(input_files, player_centered):
 				on_3 = 0 if row['on_3b'] == "" else 1
 
 				# handles missing values
-				if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "" or row['hit_location'] == "": # add or row['home_team'] == ""
+				if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "" or row['hit_location'] == "" or row['home_team'] == "" or row['away_team'] == "":
 					missing += 1
 				else:
 					# creates input to be fed into the NN
@@ -256,7 +256,7 @@ def main(input_files, player_centered):
 	return yearly_results
 	
 
-def write_seasons(codified_results):
+def write_seasons(codified_results):	
 	header_dict = {'player_id': 1, 'position': 1, 'team':1, 'total_bases': 1, 'opportunities': 1}
 	for year, players in codified_results.items():
 		filename = year + ".csv"

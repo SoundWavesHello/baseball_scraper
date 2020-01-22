@@ -4,14 +4,14 @@ import pandas as pd
 import csv
 
 # file names
-all_data_file_name = 'raw_data_2017.csv'
-processed_data_file_name = 'processed_data_2017.csv'
+all_data_file_name = 'raw_data_2019.csv'
+processed_data_file_name = 'processed_data_2019.csv'
 
 # print a nice greeting.
 def getInfo(input_file):
     print("In GET INFO")
 
-    data = statcast(start_dt='2017-03-28', end_dt='2017-10-1')
+    data = statcast(start_dt='2019-03-28', end_dt='2019-09-29')
     # print(data.head(data.size))
     data.to_csv(input_file)
 
@@ -157,6 +157,7 @@ def csvPreProcessing(input_file, output_file):
 
 # getInfo(all_data_file_name)
 csvPreProcessing(all_data_file_name, processed_data_file_name)
+# getInfo("raw_data_2019.csv")
 
 # EB looks for an 'application' callable by default.
 # application = Flask(__name__)
