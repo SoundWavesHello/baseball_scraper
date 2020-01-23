@@ -264,6 +264,7 @@ def write_seasons(codified_results):
 		filename = "results_" + year + ".csv"
 		with open(filename, 'a') as file_w:
 			writer = csv.DictWriter(file_w, header_dict.keys())
+			writer.writeheader()
 			for player_info, results in players.items():
 				player_id = player_info[0]
 				position = player_info[1]
