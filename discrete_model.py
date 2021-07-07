@@ -3,14 +3,15 @@ import numpy
 import csv
 from pybaseball import playerid_lookup
 
-input_files = ['processed_data_2015.csv', 'processed_data_2016.csv', 'processed_data_2017.csv', 'processed_data_2018.csv']
+input_files = ['processed_data_2015.csv', 'processed_data_2016.csv', 'processed_data_2017.csv', 'processed_data_2018.csv', 'processed_data_2019.csv']
 PERCENT_TRAINING = 0.8
 BATCH_SIZE = 200
 STEPS = 10000
 LEARNING_RATE = 0.001
 NUM_EPOCHS = 100
+team_dict = {"ARI": 0, "ATL": 1, "BAL": 2, "BOS": 3, "CHC": 4, "CWS": 5, "CIN": 6, "CLE": 7, "COL": 8, "DET": 9, "MIA": 10, "HOU": 11, "KC": 12, "LAA": 13, "LAD":14, "MIL":15, "MIN":16, "NYM": 17, "NYY":18, "OAK":19, "PHI":20, "PIT": 21, "SD": 22, "SF": 23, "SEA": 24, "STL": 25, "TB": 26, "TEX": 27, "TOR": 28, "WSH": 29 }
 
-
+inverted_team_dict = dict(map(reversed, team_dict.items()))
 
 def neural_net(features, labels, mode):
 
@@ -107,7 +108,7 @@ def predict(eval_data, eval_labels, classifier):
 
 def main(input_files):
 	inputs = []
-	years = {'2015': {}, '2016': {}, '2017': {}, '2018': {}}
+	years = {'2015': {}, '2016': {}, '2017': {}, '2018': {}, '2019': {}}
 	diamond = ["fielder_1", "fielder_2", "fielder_3", "fielder_4", "fielder_5", "fielder_6", "fielder_7", "fielder_8", "fielder_9"]
 
 	team_dict = {"ARI": 0, "ATL": 1, "BAL": 2, "BOS": 3, "CHC": 4, "CWS": 5, "CIN": 6, "CLE": 7, "COL": 8, "DET": 9, "MIA": 10, "HOU": 11, "KC": 12, "LAA": 13, "LAD":14, "MIL":15, "MIN":16, "NYM": 17, "NYY":18, "OAK":19, "PHI":20, "PIT": 21, "SD": 22, "SF": 23, "SEA": 24, "STL": 25, "TB": 26, "TEX": 27, "TOR": 28, "WSH": 29 }
@@ -125,7 +126,7 @@ def main(input_files):
 				on_3 = 0 if row['on_3b'] == "" else 1
 
 				# handles missing values
-				if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "" or row['hit_location'] == "": # add or row['home_team'] == ""
+				if row['hc_x'] == "" or row['hc_y'] == "" or row['launch_angle'] == "" or row['launch_speed'] == "" or row['estimated_ba_using_speedangle'] == "" or row['outs_when_up'] == "" or row['total_bases'] == "" or row['hit_location'] == "" or row['home_team'] == "" or row['away_team'] == "":
 					missing += 1
 				else:
 					# creates input to be fed into the NN
@@ -141,12 +142,23 @@ def main(input_files):
 					
 					# for some reason, we don't have pitcher and catcher id's in here???
 					if location != 0 and location != 1:
-						player = row[diamond[location]]
 						current_dict = years[input_file[-8:-4]]
-						if (player, location + 1) in current_dict.keys():
-							current_dict[(player, location + 1)].append(new_input)
+						
+						player = row[diamond[location]]
+
+						if row['inning_topbot'] == 'TOP':
+							team = team_dict[row['home_team']]
 						else:
-							current_dict[(player, location + 1)] = [new_input]
+							team = team_dict[row['away_team']]
+
+						if (player, location + 1, team) in current_dict.keys():
+							current_dict[(player, location + 1, team)].append(new_input)
+							# print("Key was already present: (" + player + "," + location + "," + team + ")")
+						else:
+							current_dict[(player, location + 1, team)] = [new_input]
+							# print("New key: (" + player + "," + location + "," + team + ")")
+
+
 		file_r.close()
 		# print(years['2015'].keys())
 
@@ -219,7 +231,7 @@ def main(input_files):
 	for year, players in years.items():
 		individual_results = {}
 		for key, value in players.items():
-			# key is (player id, location_played)
+			# key is (player id, location_played, team id [from team_dict])
 			# value is all of the plays identified with them
 			curr_x = []
 			curr_y = []
@@ -246,18 +258,21 @@ def main(input_files):
 	return yearly_results
 	
 
-def write_seasons(codified_results):
-	header_dict = {'player_id': 1, 'position': 1, 'total_bases': 1, 'opportunities': 1}
+def write_seasons(codified_results):	
+	header_dict = {'player_id': 1, 'position': 1, 'team':1, 'total_bases': 1, 'opportunities': 1}
 	for year, players in codified_results.items():
-		filename = year + ".csv"
+		filename = "results_" + year + ".csv"
 		with open(filename, 'a') as file_w:
 			writer = csv.DictWriter(file_w, header_dict.keys())
+			writer.writeheader()
 			for player_info, results in players.items():
 				player_id = player_info[0]
 				position = player_info[1]
+				team = player_info[2]
 				new_row = {}
 				new_row['player_id'] = player_id
 				new_row['position'] = position
+				new_row['team'] = inverted_team_dict[team]
 				new_row['total_bases'] = results['total_bases']
 				new_row['opportunities'] = results['opportunities']
 				writer.writerow(new_row)

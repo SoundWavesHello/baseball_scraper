@@ -5,15 +5,15 @@ from pybaseball import playerid_reverse_lookup
 # import matplotlib.pyplot as plt
 
 
-input_files = ['2018_final.csv']
-years = ["2015", "2016", "2017", "2018"]
+input_files = ['results_2015.csv', 'results_2016.csv', 'results_2017.csv', 'results_2018.csv', 'results_2019.csv']
+years = ["2015", "2016", "2017", "2018", "2019"]
 individuals = ["betts", "cano", "chapman", "hosmer", "kiermaier", "simmons", "trout"]
 
 
 array = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,849,25,32,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,632,42,10,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1224,60,16,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,62876,1821,907,13,0,0,0,0,2,0,0],[0,0,0,0,0,2,7751,8365,1092,24,0,0,0,0,1,0,1],[0,0,0,0,0,0,4858,3427,3020,34,0,0,0,0,2,0,0],[0,0,0,0,0,0,1389,1377,662,42,0,0,0,0,1,0,0],[0,0,0,0,0,0,484,196,589,10,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
 def finalize(input_files):
-	header_dict = {"last_name": 1, "first_name": 1, "position": 1, "total_bases": 1, "opportunities": 1, "percentage": 1, "player_id": 1}
+	header_dict = {"last_name": 1, "first_name": 1, "position": 1, "team":1, "total_bases": 1, "opportunities": 1, "percentage": 1, "player_id": 1}
 	for file in input_files:
 		with open(file) as file_r:
 			output_file = file[:-4] + "_final.csv"
@@ -31,11 +31,12 @@ def finalize(input_files):
 					if old_row['player_id'] == "":
 						continue
 					lookup = int(float(old_row['player_id']))
-					data = playerid_reverse_lookup([lookup], key_type="mlbam")
+					player_data = playerid_reverse_lookup([lookup], key_type="mlbam")
 					new_row['player_id'] = lookup
 					new_row['position'] = old_row['position']
-					new_row['last_name'] = data['name_last'][0]
-					new_row['first_name'] = data['name_first'][0]
+					new_row['last_name'] = player_data['name_last'][0]
+					new_row['first_name'] = player_data['name_first'][0]
+					new_row['team'] = old_row['team']
 					new_row['total_bases'] = old_row['total_bases']
 					new_row['opportunities'] = old_row['opportunities']
 
@@ -48,7 +49,7 @@ def finalize(input_files):
 
 
 def min_opportunties(num_min, input_files):
-	header_dict = {"last_name": 1, "first_name": 1, "position": 1, "total_bases": 1, "opportunities": 1, "percentage": 1, "player_id": 1}
+	header_dict = {"last_name": 1, "first_name": 1, "position": 1, "team": 1, "total_bases": 1, "opportunities": 1, "percentage": 1, "player_id": 1}
 	for file in input_files:
 		with open(file) as file_r:
 			output_file = file[:-4] + "_" + str(num_min) + ".csv"
@@ -67,6 +68,7 @@ def min_opportunties(num_min, input_files):
 					new_row['last_name'] = old_row['last_name']
 					new_row['first_name'] = old_row['first_name']
 					new_row['position'] = old_row['position']
+					new_row['team'] = old_row['team']
 					new_row['total_bases'] = old_row['total_bases']
 					new_row['opportunities'] = old_row['opportunities']
 					new_row['percentage'] = old_row['percentage']
@@ -123,6 +125,6 @@ def create_plot(confusion_matrix):
 	sn.heatmap(df_cm, annot=True)
 
 # min_opportunties(100, input_files)
-total_files = individuals_files(years, ['cespedes'])
-calc_replacement(total_files)
+# total_files = individuals_files(years, ['cespedes'])
+finalize(input_files)
 
